@@ -1,0 +1,168 @@
+:root {
+    --text-color: #333;
+    --blue: #01579b;
+    --blue-light: #0d8aee;
+    --dark: #000;
+    --light: #fff;
+    --red: #ee6e73;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contactform-section {
+    background: url(bg.jpg) center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactform-box {
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--light);
+}
+
+form {
+    width: 320px;
+    margin: auto;
+}
+
+.form-group {
+    position: relative;
+    margin: 30px 0;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    background: none;
+    color: var(--text-color);
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--dark);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+label {
+    color: var(--dark);
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    pointer-events: none;
+    transition: all .3s;
+}
+
+input:focus~label,
+textarea:focus~label,
+input:valid~label,
+textarea:valid~label {
+    top: -15px;
+    font-size: 12px;
+    color: var(--blue);
+}
+
+input:not(:placeholder-shown)~label {
+    top: -15px;
+    font-size: 12px;
+}
+
+input:not(:placeholder-shown):invalid~.line::before {
+    background: var(--red);
+}
+
+input:not(:placeholder-shown):invalid {
+    background-color: var(--red);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: transparent;
+}
+
+input:focus~.line::before,
+textarea:focus~.line::before {
+    width: 100%;
+}
+
+.line {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.line::before {
+    content: "";
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--blue);
+    transition: all .3s;
+}
+
+.btn-box {
+    text-align: center;
+}
+
+.btn-submit {
+    background: var(--blue);
+    color: var(--light);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 3px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background: var(--blue-light);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+form:invalid .btn-submit {
+    pointer-events: none;
+    opacity: .5;
+}
+
+@media only screen and (max-width: 500px) {
+
+    form,
+    input,
+    textarea {
+        width: 250px;
+    }
+}
